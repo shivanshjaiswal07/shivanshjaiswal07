@@ -4,11 +4,11 @@ class name{
     public:
     int a;
 
-    friend void display(a);
+    friend void display(a){
+        cout<<a;
+    }
 };
-name::display(){
-    cout<<a;
-}
+
 int main(){
     name n;
     n.a=10;
