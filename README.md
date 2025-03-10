@@ -1,19 +1,19 @@
 - 👋 Hi, I’m Shivansh Jaiswal, an aspiring Software Engineer and novice Full-Stack Developer. Currently, I am a second-year B.Tech student in Computer Science Engineering Student.
 - Programming Languages:
 
-**.C++
+.C++
 
 .Java
 
-.Python**
+.Python
 
 - Web Development:
 
-**.HTML
+.HTML
 
 .CSS
 
-.JavaScript**
+.JavaScript
 
 -Other Skills:
 
