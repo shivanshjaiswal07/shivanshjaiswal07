@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazon Clone</title>
+  <style>
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    
+    body {
+      background-color: #f5f5f5;
+    }
+    
+    /* Header Styles */
+    header {
+      background-color: #131921;
+      color: white;
+      padding: 10px 20px;
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+    }
+    
+    .logo img {
+      height: 40px;
+      margin-top: 5px;
+    }
+    
+    .search-container {
+      display: flex;
+      flex-grow: 1;
+      margin: 0 15px;
+      max-width: 700px;
+    }
+    
+    .search-container select {
+      background-color: #f3f3f3;
+      border: none;
+      border-radius: 4px 0 0 4px;
+      padding: 8px;
+    }
+    
+    .search-container input {
+      flex-grow: 1;
+      padding: 8px;
+      border: none;
+      outline: none;
+    }
+    
+    .search-container button {
+      background-color: #febd69;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+    }
+    
+    .search-icon {
+      width: 20px;
+      height: 20px;
+    }
+    
+    .nav-links {
+      display: flex;
+      align-items: center;
+    }
+    
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      margin-left: 15px;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .nav-links span:first-child {
+      font-size: 0.7rem;
+      color: #ccc;
+    }
+    
+    .nav-links span:last-child {
+      font-weight: bold;
+    }
+    
+    .cart {
+      display: flex;
+      align-items: center;
+    }
+    
+    .cart svg {
+      margin-right: 5px;
+    }
+    
+    /* Navigation Bar Styles */
+    .nav-bar {
+      background-color: #232f3e;
+      padding: 8px 0;
+    }
+    
+    .nav-bar-container {
+      display: flex;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .nav-bar a {
+      color: white;
+      text-decoration: none;
+      padding: 5px 10px;
+      font-size: 0.9rem;
+    }
+    
+    .nav-bar a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Hamburger Menu */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      margin-right: 15px;
+    }
+    
+    .bar {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 3px 0;
+      transition: 0.4s;
+    }
+    
+    /* Hero Section */
+    .hero-section {
+      position: relative;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+      height: 400px;
+    }
+    
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+    
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(68, 132, 206, 0.7), rgba(26, 60, 138, 0.8));
+      z-index: 0;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+    
+    .hero-content h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+    
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+    
+    .shop-now-btn {
+      background-color: #febd69;
+      color: #111;
+      padding: 10px 25px;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    /* Products Grid */
+    .products-section {
+      padding: 30px 20px;
+      background-color: white;
+    }
+    
+    .products-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+    
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    
+    .product-card {
+      background-color: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s;
+    }
+    
+    .product-card:hover {
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .product-image {
+      height: 200px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background-color: #f9f9f9;
+      border-radius: 3px;
+    }
+    
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    
+    .product-title {
+      font-size: 0.9rem;
+      min-height: 40px;
+      margin-bottom: 10px;
+    }
+    
+    .product-rating {
+      color: #febd69;
+      margin-bottom: 5px;
+      font-size: 0.8rem;
+    }
+    
+    .product-rating span {
+      color: #777;
+      margin-left: 5px;
+    }
+    
+    .product-price {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .product-price .original {
+      color: #777;
+      text-decoration: line-through;
+      font-weight: normal;
+      font-size: 0.9rem;
+      margin-left: 5px;
+    }
+    
+    .add-to-cart {
+      background-color: #febd69;
+      border: none;
+      padding: 8px 0;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: auto;
+    }
+    
+    .add-to-cart:hover {
+      background-color: #f0ad4e;
+    }
+    
+    /* Footer */
+    .back-to-top {
+      background-color: #37475a;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+    
+    .back-to-top a {
+      color: white;
+      text-decoration: none;
+    }
+    
+    .footer-links {
+      background-color: #232f3e;
+      color: white;
+      padding: 40px 20px;
+    }
+    
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    
+    .footer-column h3 {
+      margin-bottom: 15px;
+      font-size: 1rem;
+    }
+    
+    .footer-column ul {
+      list-style: none;
+    }
+    
+    .footer-column li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-column a {
+      color: #ddd;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    
+    .footer-column a:hover {
+      text-decoration: underline;
+    }
+    
+    .footer-bottom {
+      background-color: #131a22;
+      color: #ddd;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.8rem;
+    }
+    
+    .footer-bottom a {
+      color: #ddd;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+    
+    .footer-bottom p {
+      margin-top: 10px;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+      }
+      
+      .header-container {
+        flex-wrap: wrap;
+      }
+      
+      .logo-container {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+      
+      .search-container {
+        order: 3;
+        width: 100%;
+        margin: 10px 0;
+      }
+      
+      .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 10px;
+      }
+      
+      .nav-links.active {
+        display: flex;
+      }
+      
+      .nav-links a {
+        margin: 5px 0;
+      }
+      
+      .nav-bar-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .nav-bar a {
+        display: none;
+      }
+      
+      .nav-bar a:first-child {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+      }
+      
+      .nav-bar.active a {
+        display: block;
+        padding: 10px 0;
+      }
+      
+      .hero-section {
+        height: 300px;
+      }
+      
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+      
+      .hero-content p {
+        font-size: 1rem;
+      }
+      
+      .footer-container {
+        grid-template-columns: 1fr 1fr;
+      }
+      
+      .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .footer-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero-section {
+        height: 250px;
+      }
+      
+      .hero-content h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div class="logo-container">
+        <div class="menu-toggle" onclick="toggleMenu()">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+        <a href="amazon.com" class="logo">
+          <span class="nav-sprite nav-logo-base">amazon.com</span>
+        </a>
+      </div>
+      
+      <div class="search-container">
+        <select>
+          <option>All</option>
+          <option>Electronics</option>
+          <option>Computers</option>
+          <option>Home & Kitchen</option>
+          <option>Books</option>
+          <option>Fashion</option>
+        </select>
+        <input type="text" placeholder="Search Amazon">
+        <button>
+          <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+      </div>
+      
+      <div class="nav-links" id="navLinks">
+        <a href="https://www.amazon.com/ap/signin?openid.pape.max_auth_age=900&openid.return_to=https%3A%2F%2Fwww.amazon.com%3F&openid.assoc_handle=usflex&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0">
+          <span>Hello, Sign in</span>
+          <span>Account & Lists</span>
+        </a>
+        <a href="https://www.amazon.com/ap/signin?openid.pape.max_auth_age=900&openid.return_to=https%3A%2F%2Fwww.amazon.com%3F&openid.assoc_handle=usflex&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0">
+          <span>Returns</span>
+          <span>& Orders</span>
+        </a>
+        <a href="https://www.amazon.com/ap/signin?openid.pape.max_auth_age=900&openid.return_to=https%3A%2F%2Fwww.amazon.com%3F&openid.assoc_handle=usflex&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0" class="cart">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 22C9.55228 22 10 21.5523 10 21C10 20.4477 9.55228 20 9 20C8.44772 20 8 20.4477 8 21C8 21.5523 8.44772 22 9 22Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M20 22C20.5523 22 21 21.5523 21 21C21 20.4477 20.5523 20 20 20C19.4477 20 19 20.4477 19 21C19 21.5523 19.4477 22 20 22Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M1 1H5L7.68 14.39C7.77144 14.8504 8.02191 15.264 8.38755 15.5583C8.75318 15.8526 9.2107 16.009 9.68 16H19.4C19.8693 16.009 20.3268 15.8526 20.6925 15.5583C21.0581 15.264 21.3086 14.8504 21.4 14.39L23 6H6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Cart</span>
+        </a>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Navigation Bar -->
+  <nav class="nav-bar" id="navBar">
+    <div class="nav-bar-container">
+      <a href="https://www.amazon.com/ap/signin?openid.pape.max_auth_age=900&openid.return_to=https%3A%2F%2Fwww.amazon.com%3F&openid.assoc_handle=usflex&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0">
+        <svg xmlns="amazon_logo.png" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </a>
+      <a href="https://www.amazon.com/deals?ref_=nav_cs_gb">Today's Deals</a>
+      <a href="https://www.amazon.com/gp/help/customer/display.html?nodeId=508510&ref_=nav_cs_fs_hub_navbar_c">Customer Service</a>
+      <a href="https://www.amazon.com/electronics-store/b/?ie=UTF8&node=172282&ref_=topnav_storetab_e">Electronics</a>
+      <a href="https://www.amazon.com/gp/browse.html?node=283155&nodl=0&ref=books_dsk_sn_books-logo-1b731">Books</a>
+      <a href="https://www.amazon.com/amazon-fashion/b/?ie=UTF8&node=7141123011&ref_=topnav_storetab_sl">Fashion</a>
+      <a href="https://www.amazon.com/home-garden-kitchen-furniture-bedding/b/?ie=UTF8&node=1055398&ref_=topnav_storetab_hg">Home & Kitchen</a>
+      <a href="https://www.amazon.com/toys/b/?ie=UTF8&node=165793011&ref_=topnav_storetab_t">Toys & Games</a>
+    </div>
+  </nav>
+  
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIALEAuwMBIgACEQEDEQH/xAAZAAEBAQEBAQAAAAAAAAAAAAABAAIHBQT/xAAlEAEBAQACAgEBCQAAAAAAAAAAARECMQNBIQUEBhIUNVF0ssL/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A4nqKAaUgSSBFLAS04MBakQZ0pYC0acQDUkCBQBakAWkA0gQSi0gkiAJQDFhQDDhwAE0ACNAAG1ALUkARAIEA0ksBSHEQUKMBLDigDE1gAE4sBlY1iBhNUYDODGsQMpVAAQCBANJQwDCCCakS0CkQUiRALCcBkH2b0DIpQMhus0GRjQoCggAkAaMWKA1OjFIgJkE7aBSNYp0tAYYYcBlNWCQGbA3gwGQ3YzgANZ8M0GaMIAVYRaABQNTpQNQFGpAoDeG9MxoBK0sQGJHAa9MrWgZZbrAH0xTe0DOpqsUFYEKDNF7awUACgOGAg1CyYDUrTEhBtCGgYRFgHM+f3WqKgrQFAVjOtUUAKAC0LBQQpFAJIDqEIGVqMkGoWSBjWj0oBalZoBv8Q0LQWlkUGryZqxUBqFAFmnQDN7RAJIAToWgWozKgb1ayYDUpZQNBagKC0Dq0arQVq0UaCtS0WgrRagCSAIEASCCxJAYdCBpMmAVoQEskFqS0AhUCSQBKgCEgQIAoECgQSiWgdQQFDVoNaAQS0agISBLUASSBJAEmvFx5+XycPH4peXk52ceMndt6evz+6n1qcrPyfH4vv7R45/oHkJICqkCiqQKGJAqEgaCQIpAEkCVSARJAFekgfZ9G/WvsP8nxf2jtHLupA//Z" alt="Hero Background" class="hero-bg">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Welcome to Amazon</h1>
+      <p>Discover amazing deals on millions of products</p>
+      <a href="https://www.amazon.com/ap/signin?openid.pape.max_auth_age=900&openid.return_to=https%3A%2F%2Fwww.amazon.com%3F&openid.assoc_handle=usflex&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0">
+      <button class="shop-now-btn">Shop Now</button>
+      </a>
+    </div>
+  </section>
+  
+  <!-- Products Section -->
+  <section class="products-section">
+    <div class="products-container">
+      <h2 class="section-title">Today's Deals</h2>
+      
+      <div class="products-grid">
+        <!-- Product 1 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="https://m.media-amazon.com/images/I/71Rz4nN+NFL._AC_SY355_.jpg" alt="Wireless Bluetooth Headphones">
+          </div>
+          <h3 class="product-title">Wireless Bluetooth Headphones with Noise Cancellation</h3>
+          <div class="product-rating">★★★★☆ <span>(2,345)</span></div>
+          <div class="product-price">$79.99 <span class="original">$129.99</span></div>
+          <a href="https://www.amazon.com/ap/signin?openid.pape.max_auth_age=900&openid.return_to=https%3A%2F%2Fwww.amazon.com%3F&openid.assoc_handle=usflex&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0">
+          <button class="add-to-cart">Add to Cart</button>
+          </a>
+        </div>
+        
+        <!-- Product 2 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="https://m.media-amazon.com/images/I/61FuyGR4c6L._AC_SX425_.jpg" alt="Smart Watch">
+          </div>
+          <h3 class="product-title">Smart Watch with Health Monitoring Features</h3>
+          <div class="product-rating">★★★★★ <span>(1,892)</span></div>
+          <div class="product-price">$149.99 <span class="original">$199.99</span></div>
+          <a href="https://www.amazon.com/ap/signin?openid.pape.max_auth_age=900&openid.return_to=https%3A%2F%2Fwww.amazon.com%3F&openid.assoc_handle=usflex&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0">
+          <button class="add-to-cart">Add to Cart</button>
+          </a>
+        </div>
+        
+        <!-- Product 3 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="https://m.media-amazon.com/images/I/81l7mB5LhsL._AC_UF894,1000_QL80_FMwebp_.jpg" alt="Bluetooth Speaker">
+          </div>
+          <h3 class="product-title">Portable Bluetooth Speaker with 20-Hour Battery Life</h3>
+          <div class="product-rating">★★★★☆ <span>(3,127)</span></div>
+          <div class="product-price">$49.99 <span class="original">$89.99</span></div>
+          <a href="https://www.amazon.com/ap/signin?openid.pape.max_auth_age=900&openid.return_to=https%3A%2F%2Fwww.amazon.com%3F&openid.assoc_handle=usflex&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0">
+          <button class="add-to-cart">Add to Cart</button>
+          </a>
+        </div>
+       
+        <!-- Product 4 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="https://m.media-amazon.com/images/I/61Rl2U7ZBSL._AC_UF894,1000_QL80_FMwebp_.jpg" alt="4K Smart TV">
+          </div>
+          <h3 class="product-title">4K Ultra HD Smart LED TV with Voice Control</h3>
+          <div class="product-rating">★★★★☆ <span>(952)</span></div>
+          <div class="product-price">$429.99 <span class="original">$599.99</span></div>
+          <a href="https://www.amazon.com/ap/signin?openid.pape.max_auth_age=900&openid.return_to=https%3A%2F%2Fwww.amazon.com%3F&openid.assoc_handle=usflex&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0">
+          <button class="add-to-cart">Add to Cart</button>
+          </a>
+        </div>
+        
+        <!-- Product 5 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="https://m.media-amazon.com/images/I/61Mk3YqYHpL._AC_UF894,1000_QL80_FMwebp_.jpg" alt="Gaming Mouse">
+          </div>
+          <h3 class="product-title">Wireless Gaming Mouse with RGB Lighting</h3>
+          <div class="product-rating">★★★★☆ <span>(1,432)</span></div>
+          <div class="product-price">$39.99 <span class="original">$69.99</span></div>
+          <a href="https://www.amazon.com/ap/signin?openid.pape.max_auth_age=900&openid.return_to=https%3A%2F%2Fwww.amazon.com%3F&openid.assoc_handle=usflex&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0">
+          <button class="add-to-cart">Add to Cart</button>
+          </a>
+        </div>
+        
+        <!-- Product 6 -->
+        <div class="product-card">
+            <div class="product-image">
+            <img src="https://m.media-amazon.com/images/I/61XvByuVJ5L._AC_UF894,1000_QL80_FMwebp_.jpg" alt="Kitchen Knife Set">
+          </div>
+          <h3 class="product-title">Stainless Steel Kitchen Knife Set with Block</h3>
+          <div class="product-rating">★★★★☆ <span>(2,789)</span></div>
+          <div class="product-price">$89.99 <span class="original">$129.99</span></div>
+          <a href="https://www.amazon.com/ap/signin?openid.pape.max_auth_age=900&openid.return_to=https%3A%2F%2Fwww.amazon.com%3F&openid.assoc_handle=usflex&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0">
+          <button class="add-to-cart">Add to Cart</button>
+          </a>
+        </div>
+        
+        <!-- Product 7 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="https://m.media-amazon.com/images/I/61xwmPqljOL._AC_UF894,1000_QL80_FMwebp_.jpg" alt="Laptop Stand">
+          </div>
+          <h3 class="product-title">Adjustable Laptop Stand for Desk with Cooling Fan</h3>
+          <div class="product-rating">★★★★☆ <span>(3,456)</span></div>
+          <div class="product-price">$29.99 <span class="original">$49.99</span></div>
+          <a href="https://www.amazon.com/ap/signin?openid.pape.max_auth_age=900&openid.return_to=https%3A%2F%2Fwww.amazon.com%3F&openid.assoc_handle=usflex&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0">
+          <button class="add-to-cart">Add to Cart</button>
+          </a>
+        </div>
+        
+        <!-- Product 8 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="https://m.media-amazon.com/images/I/71X-iHQ9G1L._AC_SY450_.jpg" alt="Coffee Maker">
+          </div>
+          <h3 class="product-title">Coffee Maker with Programmable Timer and Water Filter</h3>
+          <div class="product-rating">★★★★☆ <span>(1,234)</span></div>
+          <div class="product-price">$59.99 <span class="original">$79.99</span></div>
+          <a href="https://www.amazon.com/ap/signin?openid.pape.max_auth_age=900&openid.return_to=https%3A%2F%2Fwww.amazon.com%3F&openid.assoc_handle=usflex&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0">
+          <button class="add-to-cart">Add to Cart</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="back-to-top">
+      <a href="#">Back to top</a>
+    </div>
+    
+    <div class="footer-links">
+      <div class="footer-container">
+        <div class="footer-column">
+          <h3>Get to Know Us</h3>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="https://www.amazon.jobs/">Careers</a></li>
+            <li><a href="https://press.aboutamazon.com/press-release-archive">Press Releases</a></li>
+            <li><a href="https://www.amazon.science/">Amazon Science</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Make Money with Us</h3>
+          <ul>
+            <li><a href="https://www.amazon.com/ap/signin?openid.pape.max_auth_age=900&openid.return_to=https%3A%2F%2Fwww.amazon.com%3F&openid.assoc_handle=usflex&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0">Sell products on Amazon</a></li>
+            <li><a href="https://www.amazon.com/ap/signin?openid.pape.max_auth_age=900&openid.return_to=https%3A%2F%2Fwww.amazon.com%3F&openid.assoc_handle=usflex&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0">Sell on Amazon Business</a></li>
+            <li><a href="https://www.amazon.com/ap/signin?openid.pape.max_auth_age=900&openid.return_to=https%3A%2F%2Fwww.amazon.com%3F&openid.assoc_handle=usflex&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0">Become an Affiliate</a></li>
+            <li><a href="https://www.amazon.com/ap/signin?openid.pape.max_auth_age=900&openid.return_to=https%3A%2F%2Fwww.amazon.com%3F&openid.assoc_handle=usflex&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0">Advertise Your Products</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Amazon Payment Products</h3>
+          <ul>
+            <li><a href="https://www.amazon.com/ap/signin?openid.pape.max_auth_age=900&openid.return_to=https%3A%2F%2Fwww.amazon.com%3F&openid.assoc_handle=usflex&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0">Amazon Business Card</a></li>
+            <li><a href="https://www.amazon.com/ap/signin?openid.pape.max_auth_age=900&openid.return_to=https%3A%2F%2Fwww.amazon.com%3F&openid.assoc_handle=usflex&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0">Shop with Points</a></li>
+            <li><a href="https://www.amazon.com/ap/signin?openid.pape.max_auth_age=900&openid.return_to=https%3A%2F%2Fwww.amazon.com%3F&openid.assoc_handle=usflex&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0">Reload Your Balance</a></li>
+            <li><a href="https://www.amazon.com/ap/signin?openid.pape.max_auth_age=900&openid.return_to=https%3A%2F%2Fwww.amazon.com%3F&openid.assoc_handle=usflex&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0">Amazon Currency Converter</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Let Us Help You</h3>
+          <ul>
+            <li><a href="https://www.amazon.com/ap/signin?openid.pape.max_auth_age=900&openid.return_to=https%3A%2F%2Fwww.amazon.com%3F&openid.assoc_handle=usflex&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0">Your Account</a></li>
+            <li><a href="https://www.amazon.com/ap/signin?openid.pape.max_auth_age=900&openid.return_to=https%3A%2F%2Fwww.amazon.com%3F&openid.assoc_handle=usflex&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0">Your Orders</a></li>
+            <li><a href="https://www.amazon.com/ap/signin?openid.pape.max_auth_age=900&openid.return_to=https%3A%2F%2Fwww.amazon.com%3F&openid.assoc_handle=usflex&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0">Shipping Rates & Policies</a></li>
+            <li><a href="https://www.amazon.com/ap/signin?openid.pape.max_auth_age=900&openid.return_to=https%3A%2F%2Fwww.amazon.com%3F&openid.assoc_handle=usflex&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0">Returns & Replacements</a></li>
+            <li><a href="https://www.amazon.com/gp/help/customer/display.html?nodeId=508510&ref_=footer_gw_m_b_he">Help</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div>
+        <a href="https://www.amazon.com/gp/help/customer/display.html?nodeId=468496&ref_=footer_privacy">Privacy Policy</a>
+        <a href="https://www.amazon.in/gp/help/customer/display.html?nodeId=202140280">Terms of Service</a>
+        <a href="https://www.amazon.com/ap/signin?openid.pape.max_auth_age=900&openid.return_to=https%3A%2F%2Fwww.amazon.com%3F&openid.assoc_handle=usflex&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0">Contact Us</a>
+      </div>
+      <p>&copy; 1996-2025, Amazon.com, Inc. or its affiliates</p>
+    </div>
+  </footer>
+  
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById('navLinks');
+      const navBar = document.getElementById('navBar');
+      navLinks.classList.toggle('active');
+      navBar.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
