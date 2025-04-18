@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shivansh Jaiswal - Portfolio</title>
+    <link rel="icon" type="image/jpeg" href="https://raw.githubusercontent.com/shivanshjaiswal07/shivanshjaiswal07/main/protfolio/gemini.jpg">
+    <meta name="description" content="Explore Shivansh Jaiswal ">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        :root {
+            --primary-rgb: 164, 175, 235;
+            --primary: rgb(var(--primary-rgb));
+        }
+        
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, sans-serif;
+            background: linear-gradient(to bottom, #111827, #000);
+            color: white;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            backdrop-filter: blur(8px);
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: flex-end;
+            gap: 2rem;
+            list-style: none;
+            padding: 1rem 0;
+            margin: 0;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 1rem;
+        }
+
+        .menu-icon {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: white;
+            position: relative;
+            transition: background-color 0.3s;
+        }
+
+        .menu-icon::before,
+        .menu-icon::after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 2px;
+            background-color: white;
+            transition: transform 0.3s;
+        }
+
+        .menu-icon::before {
+            top: -6px;
+        }
+
+        .menu-icon::after {
+            bottom: -6px;
+        }
+
+        .mobile-menu-btn.active .menu-icon {
+            background-color: transparent;
+        }
+
+        .mobile-menu-btn.active .menu-icon::before {
+            transform: rotate(45deg) translate(4px, 4px);
+        }
+
+        .mobile-menu-btn.active .menu-icon::after {
+            transform: rotate(-45deg) translate(4px, -4px);
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(to right, var(--primary), #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .glass-card {
+            backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero Section */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--primary), #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .profile-image {
+            width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+        }
+
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .education-card {
+            text-align: center;
+        }
+
+        .education-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .status {
+            color: var(--primary);
+            font-weight: bold;
+        }
+        .name{
+            text-decoration: none;
+             color: #c7d1dd;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            text-decoration: none;
+            color: #c7d1dd;
+            text-align: center;
+        }
+
+        .skill-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .skill-tags span {
+            background: rgba(var(--primary-rgb), 0.1);
+            border: 1px solid rgba(var(--primary-rgb), 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 999px;
+            font-size: 0.875rem;
+            
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-card h3 {
+            margin-bottom: 1rem;
+        }
+
+        .project-link {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            margin-top: 1rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .project-link:hover {
+            color: white;
+        }
+
+        /* Certifications Section */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .certname{
+            text-decoration: none;
+            color: #c7d1dd;
+        }
+
+        .cert-card {
+            text-align: center;
+        }
+
+        .cert-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .resume-btn {
+            text-align: center;
+            margin-top: 3rem;
+        }
+        a.link {
+        text-decoration: none;
+              }
+        .resume-btn button {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .resume-btn button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Shapes Container */
+        .shapes-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 4rem 0;
+            height: 300px;
+            position: relative;
+        }
+
+        .decorative-shape {
+            width: 300px;
+            height: 300px;
+            position: relative;
+        }
+
+        #hero-shape {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            margin-left: 2rem;
+        }
+
+        /* Contact Section */
+        .contact-card {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+            font-size: 1.5rem;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+        }
+
+        .skill-icon i,
+        .education-icon i,
+        .cert-icon i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .social-links i {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .social-links a:hover i {
+            transform: translateY(-3px);
+        }
+
+        .project-link i {
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .project-link:hover i {
+            transform: translateX(5px);
+        }
+
+        .resume-btn i {
+            font-size: 1.2rem;
+        }
+
+        /* Circuit Background */
+        #circuitCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 0.5rem;
+                right: 1rem;
+                z-index: 60;
+            }
+
+            nav.container {
+                display: flex;
+                justify-content: flex-end;
+                padding: 0.5rem 0;
+                position: relative;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.9);
+                padding: 1rem;
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 0.5rem 0;
+            }
+
+            #hero {
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .hero-content {
+                margin-bottom: 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            #hero-shape {
+                margin-left: 0;
+                margin-top: 2rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .shapes-container {
+                flex-direction: column;
+                align-items: center;
+                height: auto;
+                gap: 4rem;
+                margin: 2rem 0;
+            }
+
+            .education-grid,
+            .skills-grid,
+            .projects-grid,
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 4rem 0;
+            }
+
+            h2 {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .glass-card {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .glass-card {
+                padding: 1rem;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+
+            .social-links {
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="circuitCanvas"></canvas>
+    
+    <header>
+        <nav class="container">
+            <button class="mobile-menu-btn">
+                <span class="menu-icon"></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section id="hero">
+            <div class="hero-content">
+                <h1>Shivansh Jaiswal</h1>
+                <p>Aspiring SWE || Novice Full-Stack Developer</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/shivanshjaiswal07/" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/shivanshjaiswal07/shivanshjaiswal07" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:shivanshjaiswal1212@gmail.com">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            <div id="hero-shape"></div>
+        </section>
+
+        <section id="about" class="reveal">
+            <h2>About Me</h2>
+            <div class="about-grid">
+                <div class="about-text glass-card">
+                    <p> <i class="fa-solid fa-arrow-right"></i>   I am currently a second-year B.Tech student in Computer Science Engineering at Sagar Institute of Research and Technology (SIRT) in Bhopal. </p>
+                  </div>
+                <div class="about-text glass-card">
+                    <p> <i class="fa-solid fa-arrow-right"></i>   I have a strong foundation in programming languages such as C++, Java, and Python, supported by relevant certifications.</p> 
+                  </div>
+                <div class="about-text glass-card">
+                    <p> <i class="fa-solid fa-arrow-right"></i> Additionally, I possess expertise in web development, including HTML, CSS, and JavaScript, for which I also have certifications in HTML and CSS. This enables me to create responsive and visually appealing websites. I have successfully completed four projects: a portfolio website, an Instagram homepage clone, a Netflix clone, and an Amazon.com (US version) clone. </p>
+                  </div>
+                
+                  <div class="about-text glass-card">
+                    <p> <i class="fa-solid fa-arrow-right"></i> I am currently practising Data Structure and algorithm problems in JAVA and i have strong knowledge of Object Oriented Programming(OOP's) in C++. With a passion for problem-solving and software development, I am dedicated to continuously improving my skills. </p>
+                  </div>
+                  </div>
+
+                  <div class="Future-grid">
+                <div class="about-text glass-card">
+                    <p> <i class="fa-solid fa-arrow-right"></i> My objective is to become a highly skilled Software Engineer and Full-Stack Developer. I aspire to gain extensive knowledge and hands-on experience in both front-end and back-end technologies. By doing so, I aim to contribute to the development of innovative and impactful technological solutions that address real-world challenges.</p>
+                </div>
+            </div>
+           
+        </section>
+
+        <section id="education" class="reveal">
+            <h2>Education</h2>
+            <div class="education-grid">
+                <div class="glass-card education-card">
+                    <div class="education-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Bachelor of Technology - BTech CSE</h3>
+                    <a href="https://www.sirtbhopal.ac.in/" class="name">
+                        <h4>Sagar Group (SIRT Bhopal)</h4>
+                    </a>
+                    
+                    <p>Sep 2023 - Mar 2027</p>
+                    <p>Computer Science and Engineering</p>
+                    <p class="status">Currently in 4th Semester</p>
+                </div>
+                <div class="glass-card education-card">
+                    <div class="education-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>DIPLOMA</h3>
+                    <a href="https://dsd.mp.gov.in/ItiDirectories" class="name">
+                        <h4>Government Industrial Training Institute, Bhopal</h4>
+                    </a>
+                    <p>2021 - 2022</p>
+                    <p>Computer Operator and Programming Assistant</p>
+                </div>
+                <div class="glass-card education-card">
+                    <div class="education-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Schooling</h3>
+                    <a href="https://www.stmarysbhopal.com/" class="name">
+                        <h4>St Mary's Convent Senior Secondary School, Bhopal</h4>
+                    </a>
+                    <p>2009 - 2021</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="reveal">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+        
+                <a href="https://github.com/shivanshjaiswal07" class="link" target="_blank">
+                    <div class="glass-card skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Programming</h3>
+                        <div class="skill-tags">
+                            <span>C++</span>
+                            <span>Java</span>
+                            <span>Python</span>
+                        </div>
+                    </div>
+                </a>
+        
+                <a href="https://github.com/shivanshjaiswal07" class="link" target="_blank">
+                    <div class="glass-card skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3>Web Development</h3>
+                        <div class="skill-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+                    </div>
+                </a>
+        
+                <a href="https://github.com/shivanshjaiswal07" class="link" target="_blank">
+                    <div class="glass-card skill-card">
+                        <div class="skill-icon">
+                            <i class="fab fa-git-alt"></i>
+                        </div>
+                        <h3>Version Control</h3>
+                        <div class="skill-tags">
+                            <span>Git</span>
+                            <span>GitHub</span>
+                        </div>
+                    </div>
+                </a>
+        
+                <a href="https://github.com/shivanshjaiswal07" class="link" target="_blank">
+                    <div class="glass-card skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>DSA</h3>
+                        <div class="skill-tags">
+                            <span>Currently practicing in <strong>Java</strong></span>
+                        </div>
+                    </div>
+                </a>
+        
+                <a href="https://github.com/shivanshjaiswal07" class="link" target="_blank">
+                    <div class="glass-card skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>OOP</h3>
+                        <div class="skill-tags">
+                            <span>Strong Knowledge of OOP in C++</span>
+                        </div>
+                    </div>
+                </a>
+        
+            </div>
+        </section>
+        
+
+        <section id="certifications" class="reveal">
+            <h2>Certifications</h2>
+            <div class="cert-grid">
+                <div class="glass-card cert-card">
+                    <div class="cert-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <a href="https://raw.githubusercontent.com/shivanshjaiswal07/shivanshjaiswal07/main/protfolio/python.png" target="_blank" rel="noopener noreferrer" class="certname">
+                        <h3>Python (EC-Council)</h3>
+                    </a>
+                </div>
+                <div class="glass-card cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <a href="https://github.com/shivanshjaiswal07/shivanshjaiswal07/blob/main/protfolio/c++.png?raw=true" target="_blank" rel="noopener noreferrer" class="certname">
+                        <h3>C++</h3>
+                    </a>
+                </div>
+                <div class="glass-card cert-card">
+                    <div class="cert-icon">
+                        <i class="fa-brands fa-java"></i>
+                    </div>
+                    <a href="https://raw.githubusercontent.com/shivanshjaiswal07/shivanshjaiswal07/main/protfolio/java.jfif" target="_blank" rel="noopener noreferrer" class="certname">
+                        <h3>Java</h3>
+                    </a>
+                </div>
+                <div class="glass-card cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <a href="https://github.com/shivanshjaiswal07/shivanshjaiswal07/blob/main/protfolio/dsa.jfif?raw=true" target="_blank" rel="noopener noreferrer" class="certname">
+                        <h3>Data Structures & Algorithms (DSA in Java)</h3>
+                    </a>
+                </div>
+                <div class="glass-card cert-card">
+                    <div class="cert-icon">
+                        <i class="fab fa-html5"></i>
+                    </div>
+                    <a href="https://github.com/shivanshjaiswal07/shivanshjaiswal07/blob/main/protfolio/html.png?raw=true" target="_blank" rel="noopener noreferrer" class="certname">
+                        <h3>HTML</h3>
+                    </a>
+                </div>
+                <div class="glass-card cert-card">
+                    <div class="cert-icon">
+                        <i class="fab fa-css3-alt"></i>
+                    </div>
+                    <a href="https://github.com/shivanshjaiswal07/shivanshjaiswal07/blob/main/protfolio/css.png?raw=true" target="_blank" rel="noopener noreferrer" class="certname">
+                        <h3>CSS</h3>
+                    </a>
+                </div>
+                <div class="glass-card cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <a href="https://raw.githubusercontent.com/shivanshjaiswal07/shivanshjaiswal07/main/protfolio/Web%20Design.jfif" target="_blank" rel="noopener noreferrer" class="certname">
+                        <h3>Web Design</h3>
+                    </a>
+                </div>
+                <div class="glass-card cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <a href="https://github.com/shivanshjaiswal07/shivanshjaiswal07/blob/main/protfolio/What%20is%20generative%20ai.jpg?raw=true" target="_blank" rel="noopener noreferrer" class="certname">
+                        <h3>Generative AI</h3>
+                    </a>
+                </div>
+                <div class="glass-card cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-people-arrows"></i>
+                    </div>
+                    <a href="https://raw.githubusercontent.com/shivanshjaiswal07/shivanshjaiswal07/main/protfolio/Ibm.jfif" target="_blank" rel="noopener noreferrer" class="certname">
+                        <h3>Effective Communication</h3>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        
+           
+            
+            <div class="resume-btn">
+                <button class="glass-card">
+                    <i class="fas fa-download"></i>
+                    Download Resume
+                </button>
+            </div>
+        </section>
+
+        <section id="projects" class="reveal">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="glass-card project-card">
+                    <img src="https://raw.githubusercontent.com/shivanshjaiswal07/shivanshjaiswal07/main/netflix/netflix.png" alt="Netflix Clone" style="width: 280px; height: 300px;">
+
+                    <h3>Netflix Clone</h3>
+                    <p>Recreated the Netflix UI using HTML & CSS, focusing on responsive design and modern layout techniques.</p>
+                    <a href="https://github.com/shivanshjaiswal07/shivanshjaiswal07/tree/main/netflix" class="project-link">
+                        View Project <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="glass-card project-card">
+                    <img src="https://github.com/shivanshjaiswal07/shivanshjaiswal07/blob/main/protfolio/protfolio.png?raw=true" alt="Portfolio Website"style="width:280px; height:300px;">
+                    <h3>Portfolio Website</h3>
+                    <p>Designed and developed a personal portfolio showcasing my projects and skills.</p>
+                    <a href="https://github.com/shivanshjaiswal07/shivanshjaiswal07/tree/main/protfolio" class="project-link">
+                        View Project <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="glass-card project-card">
+                   <img src="https://raw.githubusercontent.com/shivanshjaiswal07/shivanshjaiswal07/main/protfolio/photography.png" alt="Instagram Clone" style="width: 280px; height: 300px;">
+                    <h3>Photography Website</h3>
+                    <p>A static and a basic website</p>
+                    <a href="https://github.com/shivanshjaiswal07/shivanshjaiswal07/tree/main/Photography" class="project-link">
+                        View Project <i class="fas fa-arrow-right"></i>
+                    </a> 
+                </div>
+                <div class="glass-card project-card">
+                    <img src="https://github.com/shivanshjaiswal07/shivanshjaiswal07/blob/main/protfolio/amazon.png?raw=true" alt="Amazon Clone" style="width: 280px; height: 300px;">
+                    <h3>Amazon Clone (US Version)</h3>
+                    <p>Developed a static replica of Amazon.com with HTML & CSS, focusing on complex layouts and responsiveness.</p>
+                    <a href="https://github.com/shivanshjaiswal07/shivanshjaiswal07/tree/main/amazon" class="project-link">View Project <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <div class="shapes-container">
+            <div id="shape1" class="decorative-shape"></div>
+            <div id="shape2" class="decorative-shape"></div>
+        </div>
+
+        <section id="contact" class="reveal">
+            <h2>Get in Touch</h2>
+            <div class="glass-card contact-card">
+                <p>Feel free to reach out for collaborations or just a friendly hello</p>
+                <div class="social-links">
+                    <a href="https://github.com/shivanshjaiswal07/shivanshjaiswal07" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/shivanshjaiswal07/" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin"></i>
+                    </a> 
+                    <a href="mailto:shivanshjaiswal1212@gmail.com">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    
+                </div>
+                <p>  All rights belong to their respective owners.</p>
+            </div>
+        </section>
+    
+    </main>
+    
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(section => {
+    observer.observe(section);
+});
+
+// Mobile menu toggle
+const menuBtn = document.querySelector('.mobile-menu-btn');
+const navLinks = document.querySelector('.nav-links');
+
+menuBtn.addEventListener('click', () => {
+    menuBtn.classList.toggle('active');
+    navLinks.classList.toggle('active');
+});
+
+// Three.js Shapes with different geometries
+function createShape(containerId, shapeType) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    
+    renderer.setSize(300, 300);
+    container.appendChild(renderer.domElement);
+
+    let geometry;
+    switch(shapeType) {
+        case 'icosahedron':
+            geometry = new THREE.IcosahedronGeometry(2);
+            break;
+        case 'dodecahedron':
+            geometry = new THREE.DodecahedronGeometry(2);
+            break;
+        case 'octahedron':
+            geometry = new THREE.OctahedronGeometry(2);
+            break;
+        default:
+            geometry = new THREE.IcosahedronGeometry(2);
+    }
+
+    const edges = new THREE.EdgesGeometry(geometry);
+    const line = new THREE.LineSegments(
+        edges,
+        new THREE.LineBasicMaterial({ 
+            color: 0xFFFFFF,
+            transparent: true,
+            opacity: 0.8
+        })
+    );
+    
+    scene.add(line);
+    camera.position.z = 5;
+
+    let rotationSpeed = 0.02;
+    let mouseX = 0;
+    let mouseY = 0;
+
+    // Add interactive rotation
+    container.addEventListener('mousemove', (event) => {
+        const rect = container.getBoundingClientRect();
+        mouseX = ((event.clientX - rect.left) / container.clientWidth) * 2 - 1;
+        mouseY = -((event.clientY - rect.top) / container.clientHeight) * 2 + 1;
+        rotationSpeed = 0.005;
+    });
+
+    container.addEventListener('mouseleave', () => {
+        rotationSpeed = 0.02;
+        mouseX = 0;
+        mouseY = 0;
+    });
+
+    function animate() {
+        requestAnimationFrame(animate);
+        
+        // Regular rotation
+        line.rotation.x += rotationSpeed;
+        line.rotation.y += rotationSpeed;
+
+        // Interactive rotation
+        line.rotation.x += mouseY * rotationSpeed;
+        line.rotation.y += mouseX * rotationSpeed;
+
+        renderer.render(scene, camera);
+    }
+
+    animate();
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        camera.updateProjectionMatrix();
+        renderer.setSize(300, 300);
+    });
+
+    // Clean up function
+    return () => {
+        geometry.dispose();
+        edges.dispose();
+        renderer.dispose();
+    };
+}
+
+// Create different shapes
+createShape('hero-shape', 'icosahedron');
+createShape('shape1', 'dodecahedron');
+createShape('shape2', 'octahedron');
+
+// Circuit animation
+document.addEventListener('DOMContentLoaded', function() {
+    const canvas = document.getElementById('circuitCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // Set canvas to full screen size
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    
+    // Circuit nodes and connections
+    const nodes = [];
+    const nodeCount = Math.floor(window.innerWidth * window.innerHeight / 15000); // Adjust density
+    
+    // Generate random nodes
+    for (let i = 0; i < nodeCount; i++) {
+        nodes.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            connections: []
+        });
+    }
+    
+    // Connect nodes (create circuit paths)
+    for (let i = 0; i < nodes.length; i++) {
+        const node = nodes[i];
+        const connectionsCount = Math.floor(Math.random() * 2) + 1; // 1-2 connections per node
+        
+        // Calculate distances to all other nodes
+        const distances = [];
+        for (let j = 0; j < nodes.length; j++) {
+            if (j === i) continue;
+            const otherNode = nodes[j];
+            const dx = node.x - otherNode.x;
+            const dy = node.y - otherNode.y;
+            distances.push({
+                index: j,
+                distance: Math.sqrt(dx * dx + dy * dy)
+            });
+        }
+        
+        // Sort by distance and connect to closest nodes
+        distances.sort((a, b) => a.distance - b.distance);
+        
+        for (let j = 0; j < Math.min(connectionsCount, distances.length); j++) {
+            node.connections.push(distances[j].index);
+        }
+    }
+    
+    // Animation variables
+    let lineAnimations = [];
+    
+    // Create initial line animations
+    function createLineAnimations() {
+        lineAnimations = [];
+        const lineCount = Math.floor(nodes.length * 0.3); // 30% of nodes have animated lines
+        
+        for (let i = 0; i < lineCount; i++) {
+            const randomNodeIndex = Math.floor(Math.random() * nodes.length);
+            if (nodes[randomNodeIndex].connections.length > 0) {
+                const targetIndex = nodes[randomNodeIndex].connections[0];
+                lineAnimations.push({
+                    fromNodeIndex: randomNodeIndex,
+                    toNodeIndex: targetIndex,
+                    progress: 0,
+                    speed: 0.005 + Math.random() * 0.01 // Random speed
+                });
+            }
+        }
+    }
+    
+    createLineAnimations();
+    
+    // Function to determine if background is dark blue or black
+    function isBackgroundDarkBlue() {
+        // This is a simple approximation - you may need to adjust based on your specific colors
+        // Check if the gradient is more towards the blue than black
+        return document.body.style.background.indexOf('111827') > -1;
+    }
+    
+    // Animation loop
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // Determine if background is dark blue
+        const isDarkBlue = isBackgroundDarkBlue();
+        
+        // Set colors based on background with higher opacity values
+        let lineColor;
+        let movingLineColor;
+        
+        if (isDarkBlue) {
+            // On dark blue background, use black lines with higher opacity
+            lineColor = 'rgba(0, 0, 0, 0.15)'; // More visible black for circuit lines
+            movingLineColor = 'rgba(100, 50, 20, 0.3)'; // Higher opacity for moving lines
+        } else {
+            // On black background, use dark blue lines with higher opacity
+            lineColor = 'rgba(0, 30, 60, 0.15)'; // More visible dark blue for circuit lines
+            movingLineColor = 'rgba(0, 40, 80, 0.3)'; // Higher opacity for moving lines
+        }
+        
+        // Draw connections (static circuit lines)
+        ctx.strokeStyle = lineColor;
+        ctx.lineWidth = 1;
+        
+        for (let i = 0; i < nodes.length; i++) {
+            const node = nodes[i];
+            for (const connIndex of node.connections) {
+                const connectedNode = nodes[connIndex];
+                ctx.beginPath();
+                ctx.moveTo(node.x, node.y);
+                ctx.lineTo(connectedNode.x, connectedNode.y);
+                ctx.stroke();
+            }
+        }
+        
+        // Draw animated moving lines
+        ctx.strokeStyle = movingLineColor;
+        ctx.lineWidth = 1.5;
+        
+        for (let i = 0; i < lineAnimations.length; i++) {
+            const anim = lineAnimations[i];
+            const fromNode = nodes[anim.fromNodeIndex];
+            const toNode = nodes[anim.toNodeIndex];
+            
+            // Calculate start and end positions for the animated segment
+            const startX = fromNode.x + (toNode.x - fromNode.x) * Math.max(0, anim.progress - 0.2);
+            const startY = fromNode.y + (toNode.y - fromNode.y) * Math.max(0, anim.progress - 0.2);
+            const endX = fromNode.x + (toNode.x - fromNode.x) * Math.min(1, anim.progress);
+            const endY = fromNode.y + (toNode.y - fromNode.y) * Math.min(1, anim.progress);
+            
+            // Draw the animated line segment
+            ctx.beginPath();
+            ctx.moveTo(startX, startY);
+            ctx.lineTo(endX, endY);
+            ctx.stroke();
+            
+            // Update progress
+            anim.progress += anim.speed;
+            
+            // Reset when it reaches the end
+            if (anim.progress >= 1.2) {
+                anim.progress = 0;
+                
+                // Maybe change to a new connection
+                if (Math.random() < 0.5) {
+                    const newFromNodeIndex = Math.floor(Math.random() * nodes.length);
+                    if (nodes[newFromNodeIndex].connections.length > 0) {
+                        const newToNodeIndex = nodes[newFromNodeIndex].connections[0];
+                        anim.fromNodeIndex = newFromNodeIndex;
+                        anim.toNodeIndex = newToNodeIndex;
+                    }
+                }
+            }
+        }
+        
+        requestAnimationFrame(animate);
+    }
+    
+    // Start animation
+    animate();
+});
+
+// Smooth scrolling
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        menuBtn.classList.remove('active');
+        navLinks.classList.remove('active');
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+// Download resume button animation
+const resumeBtn = document.querySelector('.resume-btn button');
+
+if (resumeBtn) {
+    resumeBtn.addEventListener('mouseover', () => {
+        resumeBtn.style.transform = 'scale(1.05)';
+    });
+
+    resumeBtn.addEventListener('mouseout', () => {
+        resumeBtn.style.transform = 'scale(1)';
+    });
+
+    resumeBtn.addEventListener('click', () => {
+
+        window.open('https://raw.githubusercontent.com/shivanshjaiswal07/shivanshjaiswal07/main/protfolio/resume.pdf', '_blank');
+    }); 
+}
+
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', () => {
+    // Trigger initial reveal animations
+    document.querySelectorAll('.reveal').forEach(section => {
+        if (section.getBoundingClientRect().top < window.innerHeight) {
+            section.classList.add('active');
+        }
+    });
+});
+document.addEventListener('DOMContentLoaded', () => {
+    // Trigger initial reveal animations
+    document.querySelectorAll('.reveal').forEach(section => {
+        if (section.getBoundingClientRect().top < window.innerHeight) {
+            section.classList.add('active');
+        }
+    });
+});
+    </script>
+    
+</body>
+</html>
