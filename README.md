@@ -1,7 +1,7 @@
 <h1 align="center">👋 Hi, I'm Shivansh Jaiswal</h1>
 
 <p align="center">
-  <img src="https://img.freepik.com/free-vector/3d-style-black-background-with-paper-layer_206725-669.jpg?semt=ais_hybrid&w=740" width="600"/>
+<img src="https://raw.githubusercontent.com/shivanshjaiswal07/shivanshjaiswal07/refs/heads/main/protfolio/jk'.jpg" width="600" />
 </p>
 
 ---
@@ -18,22 +18,24 @@
   <a href="https://www.linkedin.com/in/yourusername" target="_blank">
     <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/>
   </a>
-  <a href="https://medium.com/@yourusername" target="_blank">
-    <img src="https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white"/>
-  </a>
   <a href="https://www.youtube.com/c/yourchannel" target="_blank">
-    <img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white"/>
+    <img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white"/>
   </a>
 </p>
 
 ---
+<p dir="auto">
+  <a target="_blank" rel="noopener noreferrer" href="https://github.com/shivanshjaiswal07/shivanshjaiswal07/blob/main/protfolio/gitcat.png">
+    <img align="right" alt="PNG" src="https://github.com/shivanshjaiswal07/shivanshjaiswal07/blob/main/protfolio/gitcat.png" width="200" height="300" style="max-width: 100%;">
+  </a>
+</p>
+
 
 ## 👨‍💻 About Me
 
 - 🎓 I'm a B.Tech Computer Science Engineering student at **SIRT Bhopal**
 - 💻 Passionate about software development & web technologies
 - 📫 Reach me at: **shivanshjaiswal1212@gmail.com**
-
 ---
 
 ## 🛠️ Tech Stack
@@ -51,19 +53,3 @@
 </p>
 
 ---
-
-## 📊 GitHub Stats
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=shivanshjaiswal1212&show_icons=true&theme=tokyonight&count_private=true"/>
-  <br/>
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=shivanshjaiswal1212&theme=tokyonight"/>
-  <br/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=shivanshjaiswal1212&layout=compact&theme=tokyonight"/>
-</p>
-
----
-
-<p align="center">
-  <img src="https://octodex.github.com/images/steroidtocat.png" width="150"/>
-</p>
