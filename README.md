@@ -4,8 +4,6 @@
 <img src="https://raw.githubusercontent.com/shivanshjaiswal07/shivanshjaiswal07/refs/heads/main/protfolio/jk'.jpg" width="600" />
 </p>
 
----
-
 ## 🌐 Socials
 
 <p align="center">
@@ -24,12 +22,12 @@
 </p>
 
 ---
+---
 <p dir="auto">
-  <a target="_blank" rel="noopener noreferrer" href="https://github.com/shivanshjaiswal07/shivanshjaiswal07/blob/main/protfolio/gitcat.png">
-    <img align="right" alt="PNG" src="https://github.com/shivanshjaiswal07/shivanshjaiswal07/blob/main/protfolio/gitcat.png" width="200" height="300" style="max-width: 100%;">
-  </a>
+ <a target="_blank" rel="noopener noreferrer" href="https://github.com/shivanshjaiswal07/shivanshjaiswal07/blob/main/protfolio/gicatgpg.png">
+  <img align="right" alt="PNG" src="https://github.com/shivanshjaiswal07/shivanshjaiswal07/blob/main/protfolio/gicatgpg.png" width="200" height="200" style="max-width: 100%;">
+</a>
 </p>
-
 
 ## 👨‍💻 About Me
 
@@ -37,6 +35,7 @@
 - 💻 Passionate about software development & web technologies
 - 📫 Reach me at: **shivanshjaiswal1212@gmail.com**
 ---
+
 
 ## 🛠️ Tech Stack
 
@@ -53,3 +52,34 @@
 </p>
 
 ---
+
+## 📊 GitHub Stats
+
+<p align="center">
+  <!-- GitHub Stats Card -->
+  <img src="https://github-readme-stats.vercel.app/api?username=shivanshjaiswal07&show_icons=true&theme=tokyonight&count_private=true" alt="GitHub Stats" />
+  <br/><br/>
+
+  <!-- GitHub Streak -->
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=shivanshjaiswal07&theme=tokyonight" alt="GitHub Streak" />
+  <br/><br/>
+
+  <!-- Top Languages -->
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=shivanshjaiswal07&layout=compact&theme=tokyonight" alt="Top Languages" />
+  <br/><br/>
+
+   <a href="https://app.netlify.com/teams/shivanshjaiswal7845/sites" target="_blank" rel="noopener noreferrer">
+    <img src="https://api.netlify.com/api/v1/badges/shivanshjaiswal7845/deploy-status" alt="Netlify Deploy Status" />
+  </a>
+  <br/><br/>
+
+  <!-- Netlify Account Badge -->
+  <a href="https://app.netlify.com/teams/shivanshjaiswal7845/overview" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.shields.io/badge/Netlify-shivanshjaiswal7845-00C7B7?style=flat&logo=netlify&logoColor=white" alt="Netlify" />
+  </a>
+  
+ <a href="https://www.linkedin.com/in/shivanshjaiswal07/" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.shields.io/badge/LinkedIn-Profile-0A66C2?style=flat&logo=linkedin&logoColor=white" alt="LinkedIn" />
+  </a>
+</p>
+
