@@ -1,7 +1,7 @@
 <h1 align="center">👋 Hi, I'm Shivansh Jaiswal</h1>
 
 <p align="left">
-<img src="https://github.com/shivanshjaiswal07/shivanshjaiswal07/blob/main/protfolio/jk.png" width="550" height="300" style="max-width: 100%;/>
+<img src="https://github.com/shivanshjaiswal07/shivanshjaiswal07/blob/main/protfolio/jk.png" width="400" height="250" style="max-width: 100%;/>
 </p>
 
 
