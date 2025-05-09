@@ -1,7 +1,9 @@
 <h1 align="center">👋 Hi, I'm Shivansh Jaiswal</h1>
 
+
+
 <p align="left">
-<img src="https://github.com/shivanshjaiswal07/shivanshjaiswal07/blob/main/protfolio/jk.png" width="400" height="250" style="max-width: 100%;/>
+  <img src="https://github.com/shivanshjaiswal07/shivanshjaiswal07/blob/main/protfolio/jk.png" width="400" height="250" style="max-width: 100%;" />
 </p>
 
 
@@ -69,6 +71,7 @@
   <br/><br/>
 
   <!-- GitHub Streak -->
+  ![Profile views](https://komarev.com/ghpvc/?username=shivanshjaiswal07&color=blue)
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=shivanshjaiswal07&theme=tokyonight" alt="GitHub Streak" />
   <br/><br/>
 
