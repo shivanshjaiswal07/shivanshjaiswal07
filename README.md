@@ -71,7 +71,7 @@
   <br/><br/>
 
   <!-- GitHub Streak -->
-  ![Profile views](https://komarev.com/ghpvc/?username=shivanshjaiswal07&color=blue)
+
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=shivanshjaiswal07&theme=tokyonight" alt="GitHub Streak" />
   <br/><br/>
 
