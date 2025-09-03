@@ -1,6 +1,132 @@
+/* ===== Loading Animations ===== */
 
+.fadeup {
+  animation: up 400ms both linear;
+
+}
+@keyframes up {
+  from {
+    opacity: 0;
+    transform: translateY(clamp(20px, 8vh, 100px));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fadedown {
+  animation: down 450ms both linear;
+
+}
+@keyframes down {
+  from {
+    opacity: 0;
+    transform: translateY(clamp(-20px, -8vh, -100px)) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.fadedright {
+  animation: right 600ms both linear;
+ 
+}
+@keyframes right {
+  from {
+    opacity: 0;
+    transform: translateX(clamp(-20px, -8vw, -100px));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fadedleft {
+  animation: left 600ms both linear;
+  
+}
+@keyframes left {
+  from {
+    opacity: 0;
+    transform: translateX(clamp(20px, 8vw, 100px));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ===== Scrolling Animations ===== */
+
+.autoshow {
+  animation: text-appear both;
+  animation-timeline: view(2%);
+}
+@keyframes text-appear {
+  from {
+    opacity: 0;
+    transform: translateY(clamp(20px, 8vh, 100px));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cardReveal {
+  animation: cardReveal both;
+  animation-timeline: view(1%);
+}
+@keyframes cardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(clamp(15px, 6vh, 60px)) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.fadedrightReaveal {
+  animation: fadedrightReaveal both;
+  animation-timeline: view(2%);
+
+}
+@keyframes fadedrightReaveal {
+  from {
+    opacity: 0;
+    transform: translateX(clamp(-20px, -8vw, -100px));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fadedleftReaveal {
+  animation: fadedleftReaveal both;
+  animation-timeline: view(2%);
+
+}
+@keyframes fadedleftReaveal {
+  from {
+    opacity: 0;
+    transform: translateX(clamp(20px, 8vw, 100px));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
         /* CSS Reset */
-        * {
+        
+
+* {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
