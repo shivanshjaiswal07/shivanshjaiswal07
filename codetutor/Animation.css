@@ -65,6 +65,7 @@
 .autoshow {
   animation: text-appear both;
   animation-timeline: view(2%);
+-webkit-animation-timeline: view(2%);
 }
 @keyframes text-appear {
   from {
@@ -80,6 +81,7 @@
 .cardReveal {
   animation: cardReveal both;
   animation-timeline: view(1%);
+-webkit-animation-timeline: view(1%);
 }
 @keyframes cardReveal {
   from {
@@ -95,6 +97,7 @@
 .fadedrightReaveal {
   animation: fadedrightReaveal both;
   animation-timeline: view(2%);
+-webkit-animation-timeline: view(2%);
 
 }
 @keyframes fadedrightReaveal {
@@ -111,6 +114,7 @@
 .fadedleftReaveal {
   animation: fadedleftReaveal both;
   animation-timeline: view(2%);
+-webkit-animation-timeline: view(2%);
 
 }
 @keyframes fadedleftReaveal {
