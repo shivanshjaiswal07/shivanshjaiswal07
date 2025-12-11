@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shivansh Jaiswal - Portfolio</title>
-    <link rel="icon" type="image/jpeg" href="https://raw.githubusercontent.com/shivanshjaiswal07/shivanshjaiswal07/main/protfolio/gemini.jpg">
+    <link rel="icon" type="image/jpeg"
+        href="https://raw.githubusercontent.com/shivanshjaiswal07/shivanshjaiswal07/main/protfolio/gemini.jpg">
     <meta name="description" content="Explore Shivansh Jaiswal ">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -13,7 +15,6 @@
             --primary-rgb: 164, 175, 235;
             --primary: rgb(var(--primary-rgb));
         }
-        
 
         body {
             margin: 0;
@@ -178,9 +179,15 @@
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+            gap: 5rem;
             align-items: center;
         }
+
+        .future {
+            margin: top 10px;
+        }
+
+
 
         .profile-image {
             width: 100%;
@@ -208,10 +215,11 @@
         .status {
             color: var(--primary);
             font-weight: bold;
+
         }
-        .name{
-            text-decoration: none;
-             color: #c7d1dd;
+
+        .name {
+            color: #FFFFFF;
         }
 
         /* Skills Section */
@@ -219,19 +227,30 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
+
+        }
+
+        .link {
+            text-decoration: none;
+            color: inherit;
+            /* Keeps the default text color */
+        }
+
+
+        .skill-card {
+            text-align: center;
+            color: #ffff;
+            text-decoration: none;
         }
 
         .skill-card {
             text-decoration: none;
-            color: #c7d1dd;
-            text-align: center;
         }
 
         .skill-icon {
             font-size: 2rem;
             color: var(--primary);
             margin-bottom: 1rem;
-
         }
 
         .skill-tags {
@@ -242,13 +261,18 @@
             margin-top: 1rem;
         }
 
+        .experience-item {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
         .skill-tags span {
             background: rgba(var(--primary-rgb), 0.1);
             border: 1px solid rgba(var(--primary-rgb), 0.2);
             padding: 0.5rem 1rem;
             border-radius: 999px;
             font-size: 0.875rem;
-            
         }
 
         /* Projects Section */
@@ -289,14 +313,14 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             margin-bottom: 2rem;
-        }
-        .certname{
-            text-decoration: none;
-            color: #c7d1dd;
+
         }
 
-        .cert-card {
-            text-align: center;
+        .certname {
+            text-decoration: none;
+            /* Remove underline */
+            color: inherit;
+            /* Keep text color consistent */
         }
 
         .cert-icon {
@@ -309,9 +333,7 @@
             text-align: center;
             margin-top: 3rem;
         }
-        a.link {
-        text-decoration: none;
-              }
+
         .resume-btn button {
             background: none;
             border: none;
@@ -529,11 +551,148 @@
                 gap: 1.5rem;
             }
         }
+
+        /* --- 1. Basic Experience Section Styling --- */
+        #experience {
+            padding: 60px 20px;
+            text-align: center;
+
+        }
+
+        #experience h2 {
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            color: #333;
+        }
+
+        .highlight {
+            /* IMPORTANT: Match this color to your portfolio's main accent/theme color */
+            color: #007bff;
+            /* Example: Blue accent color */
+        }
+
+        /* --- 2. Experience Container (Timeline Layout) --- */
+        .experience-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            padding-left: 30px;
+            /* Space for the vertical line */
+        }
+
+        /* Vertical Timeline Line */
+        .experience-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 10px;
+            /* Position the line */
+            width: 3px;
+            background-color: #ccc;
+            /* Light grey line */
+        }
+
+        /* --- 3. Individual Experience Item Styling (The Card) --- */
+        .experience-item {
+            text-align: left;
+            background-color: #010f1b;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .experience-item:hover {
+            transform: translateY(-5px);
+            /* Simple hover effect for professionalism */
+        }
+
+        /* Timeline Dot/Marker */
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -29px;
+            /* Adjust to align with the vertical line */
+            top: 25px;
+            width: 15px;
+            height: 15px;
+            background-color: #007bff;
+            /* Match highlight color */
+            border: 3px solid #fff;
+            /* White border to lift it off the line */
+            border-radius: 50%;
+            z-index: 10;
+        }
+
+        /* Job Title and Company */
+        .job-info-header {
+            border-bottom: 2px solid #070101;
+            /* Light separator line */
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+
+        .job-info-header h3 {
+            margin-top: 0;
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #A4AFEB;
+            /* Making the job title stand out with the accent color */
+        }
+
+        .company-name {
+            color: #d3d1d1;
+            font-style: italic;
+            margin-bottom: 0;
+        }
+
+        /* Dates and Location */
+        .job-duration {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+            color: #888;
+        }
+
+        .responsibilities {
+            padding-left: 20px;
+            margin-top: 10px;
+            line-height: 1.6;
+            color: #c4c7ce;
+        }
+
+        .responsibilities li {
+            margin-bottom: 8px;
+        }
+
+        /* --- 4. Responsive Adjustment for Smaller Screens --- */
+        @media (max-width: 600px) {
+            .experience-container {
+                padding-left: 0;
+            }
+
+            /* Hide timeline elements on small screens for better mobile readability */
+            .experience-container::before,
+            .experience-item::before {
+                display: none;
+            }
+
+            .job-duration {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
     </style>
 </head>
+
 <body>
     <canvas id="circuitCanvas"></canvas>
-    
+
     <header>
         <nav class="container">
             <button class="mobile-menu-btn">
@@ -544,6 +703,7 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
                 <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -554,15 +714,15 @@
         <section id="hero">
             <div class="hero-content">
                 <h1>Shivansh Jaiswal</h1>
-                <p>Aspiring SWE || Novice Full-Stack Developer</p>
+                <p>Aspiring SWE | Novice Full-Stack Developer</p>
                 <div class="social-links">
                     <a href="https://www.linkedin.com/in/shivanshjaiswal07/" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    <a href="https://github.com/shivanshjaiswal07/shivanshjaiswal07" target="_blank" rel="noopener noreferrer">
+                    <a href="https://github.com/shivanshjaiswal07" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="mailto:shivanshjaiswal1212@gmail.com">
+                    <a href="https://shivanshjaiswal1212@gmail.com/">
                         <i class="fas fa-envelope"></i>
                     </a>
                 </div>
@@ -574,26 +734,38 @@
             <h2>About Me</h2>
             <div class="about-grid">
                 <div class="about-text glass-card">
-                    <p> <i class="fa-solid fa-arrow-right"></i>   I am currently a second-year B.Tech student in Computer Science Engineering at Sagar Institute of Research and Technology (SIRT) in Bhopal. </p>
-                  </div>
+                    <p> <i class="fa-solid fa-arrow-right"></i> I am currently a second-year B.Tech student in Computer
+                        Science Engineering at Sagar Institute of Research and Technology (SIRT) in Bhopal. </p>
+                </div>
                 <div class="about-text glass-card">
-                    <p> <i class="fa-solid fa-arrow-right"></i>   I have a strong foundation in programming languages such as C++, Java, and Python, supported by relevant certifications.</p> 
-                  </div>
+                    <p> <i class="fa-solid fa-arrow-right"></i> I have a strong foundation in programming languages such
+                        as C++, Java, and Python, supported by relevant certifications.</p>
+                </div>
                 <div class="about-text glass-card">
-                    <p> <i class="fa-solid fa-arrow-right"></i> Additionally, I possess expertise in web development, including HTML, CSS, and JavaScript, for which I also have certifications in HTML and CSS. This enables me to create responsive and visually appealing websites. I have successfully completed four projects: a portfolio website, an Instagram homepage clone, a Netflix clone, and an Amazon.com (US version) clone. </p>
-                  </div>
-                
-                  <div class="about-text glass-card">
-                    <p> <i class="fa-solid fa-arrow-right"></i> I am currently practising Data Structure and algorithm problems in JAVA and i have strong knowledge of Object Oriented Programming(OOP's) in C++. With a passion for problem-solving and software development, I am dedicated to continuously improving my skills. </p>
-                  </div>
-                  </div>
+                    <p> <i class="fa-solid fa-arrow-right"></i> Additionally, I possess expertise in web development,
+                        including HTML, CSS, and JavaScript, for which I also have certifications in HTML and CSS. This
+                        enables me to create responsive and visually appealing websites. I have successfully completed
+                        four projects: a portfolio website, a Photography Webpage, a Netflix clone, and an Amazon.com
+                        (US version) clone. </p>
+                </div>
 
-                  <div class="Future-grid">
                 <div class="about-text glass-card">
-                    <p> <i class="fa-solid fa-arrow-right"></i> My objective is to become a highly skilled Software Engineer and Full-Stack Developer. I aspire to gain extensive knowledge and hands-on experience in both front-end and back-end technologies. By doing so, I aim to contribute to the development of innovative and impactful technological solutions that address real-world challenges.</p>
+                    <p> <i class="fa-solid fa-arrow-right"></i> I am currently practising Data Structure and alogrithm
+                        problmes in JAVA and i have sttromg knowledge of Object Oriented Progrraming(OOP's) in C++. With
+                        a passion for problem-solving and software development, I am dedicated to continuously improving
+                        my skills. </p>
                 </div>
             </div>
-           
+
+            <div class="future">
+                <div class="about-text glass-card">
+                    <p> <i class="fa-solid fa-arrow-right"></i> My objective is to become a highly skilled Software
+                        Engineer and Full-Stack Developer. I aspire to gain extensive knowledge and hands-on experience
+                        in both front-end and back-end technologies. By doing so, I aim to contribute to the development
+                        of innovative and impactful technological solutions that address real-world challenges.</p>
+                </div>
+            </div>
+
         </section>
 
         <section id="education" class="reveal">
@@ -605,12 +777,12 @@
                     </div>
                     <h3>Bachelor of Technology - BTech CSE</h3>
                     <a href="https://www.sirtbhopal.ac.in/" class="name">
-                        <h4>Sagar Group (SIRT Bhopal)</h4>
+                        <h4>Sagar Institute Of Research and Technology,Bhopal (SIRT Bhopal)</h4>
                     </a>
-                    
+
                     <p>Sep 2023 - Mar 2027</p>
                     <p>Computer Science and Engineering</p>
-                    <p class="status">Currently in 4th Semester</p>
+                    <p class="status">Currently in 3rd Year</p>
                 </div>
                 <div class="glass-card education-card">
                     <div class="education-icon">
@@ -628,7 +800,7 @@
                         <i class="fas fa-graduation-cap"></i>
                     </div>
                     <h3>Schooling</h3>
-                    <a href="https://www.stmarysbhopal.com/" class="name">
+                    <a href="https://dsd.mp.gov.in/ItiDirectories" class="name">
                         <h4>St Mary's Convent Senior Secondary School, Bhopal</h4>
                     </a>
                     <p>2009 - 2021</p>
@@ -639,7 +811,7 @@
         <section id="skills" class="reveal">
             <h2>Skills</h2>
             <div class="skills-grid">
-        
+
                 <a href="https://github.com/shivanshjaiswal07" class="link" target="_blank">
                     <div class="glass-card skill-card">
                         <div class="skill-icon">
@@ -653,7 +825,7 @@
                         </div>
                     </div>
                 </a>
-        
+
                 <a href="https://github.com/shivanshjaiswal07" class="link" target="_blank">
                     <div class="glass-card skill-card">
                         <div class="skill-icon">
@@ -664,10 +836,11 @@
                             <span>HTML</span>
                             <span>CSS</span>
                             <span>JavaScript</span>
+                            <span>React</span>
                         </div>
                     </div>
                 </a>
-        
+
                 <a href="https://github.com/shivanshjaiswal07" class="link" target="_blank">
                     <div class="glass-card skill-card">
                         <div class="skill-icon">
@@ -680,7 +853,7 @@
                         </div>
                     </div>
                 </a>
-        
+
                 <a href="https://github.com/shivanshjaiswal07" class="link" target="_blank">
                     <div class="glass-card skill-card">
                         <div class="skill-icon">
@@ -692,7 +865,7 @@
                         </div>
                     </div>
                 </a>
-        
+
                 <a href="https://github.com/shivanshjaiswal07" class="link" target="_blank">
                     <div class="glass-card skill-card">
                         <div class="skill-icon">
@@ -704,10 +877,58 @@
                         </div>
                     </div>
                 </a>
-        
+
             </div>
         </section>
-        
+
+        <section id="experience" class="reveal">
+
+            <h2><span class="highlight">Experience</span></h2>
+
+            <div class="experience-container">
+
+                <div class="experience-item">
+                    <div class="job-info-header">
+                        <h3>Frontend Development Intern</h3>
+                        <a href="https://www.promogon.com/">
+                            <p class="company-name">Promogan Private Limited</p>
+                        </a>
+                    </div>
+                    <div class="job-duration">
+                        <span class="dates">August 22, 2025 - Present</span>
+                        <span class="location">Remote/Internship</span>
+                    </div>
+                    <ul class="responsibilities">
+                        <li>Served as the <u><b>Team Leader</b></u>, taking responsibility for planning, coordination,
+                            task delegation, and ensuring smooth collaboration within the team.</li>
+                        <li>Built responsive and user-focused frontend interfaces for various project modules.</li>
+                        <li>Improved UI/UX quality and overall design consistency across projects.</li>
+                        <li>Managed the team effectively under deadlines, strengthening leadership and problem-solving
+                            skills.</li>
+                        <li>Gained exposure to industry-level workflows and best practices in frontend development.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-info-header">
+                        <h3>Web Development Freelancer</h3>
+                        <p class="company-name">Self-Employed</p>
+                    </div>
+                    <div class="job-duration">
+                        <span class="dates">March 2024 - August 2025</span>
+                        <span class="location">Bhopal, India</span>
+                    </div>
+                    <ul class="responsibilities">
+                        <li>Designed and deployed 3 static portfolio websites for small business clients using HTML,
+                            CSS, and JavaScript.</li>
+                        <li>Managed client communication, requirements gathering, and project deployment phases.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+        </section>
+
 
         <section id="certifications" class="reveal">
             <h2>Certifications</h2>
@@ -716,7 +937,8 @@
                     <div class="cert-icon">
                         <i class="fab fa-python"></i>
                     </div>
-                    <a href="https://raw.githubusercontent.com/shivanshjaiswal07/shivanshjaiswal07/main/protfolio/python.png" target="_blank" rel="noopener noreferrer" class="certname">
+                    <a href="https://raw.githubusercontent.com/shivanshjaiswal07/shivanshjaiswal07/main/protfolio/python.png"
+                        target="_blank" rel="noopener noreferrer" class="certname">
                         <h3>Python (EC-Council)</h3>
                     </a>
                 </div>
@@ -724,7 +946,8 @@
                     <div class="cert-icon">
                         <i class="fas fa-code"></i>
                     </div>
-                    <a href="https://github.com/shivanshjaiswal07/shivanshjaiswal07/blob/main/protfolio/c++.png?raw=true" target="_blank" rel="noopener noreferrer" class="certname">
+                    <a href="https://github.com/shivanshjaiswal07/shivanshjaiswal07/blob/main/protfolio/c++.png?raw=true"
+                        target="_blank" rel="noopener noreferrer" class="certname">
                         <h3>C++</h3>
                     </a>
                 </div>
@@ -732,7 +955,8 @@
                     <div class="cert-icon">
                         <i class="fa-brands fa-java"></i>
                     </div>
-                    <a href="https://raw.githubusercontent.com/shivanshjaiswal07/shivanshjaiswal07/main/protfolio/java.jfif" target="_blank" rel="noopener noreferrer" class="certname">
+                    <a href="https://raw.githubusercontent.com/shivanshjaiswal07/shivanshjaiswal07/main/protfolio/java.jfif"
+                        target="_blank" rel="noopener noreferrer" class="certname">
                         <h3>Java</h3>
                     </a>
                 </div>
@@ -740,7 +964,7 @@
                     <div class="cert-icon">
                         <i class="fas fa-database"></i>
                     </div>
-                    <a href="https://github.com/shivanshjaiswal07/shivanshjaiswal07/blob/main/protfolio/dsa.jfif?raw=true" target="_blank" rel="noopener noreferrer" class="certname">
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="certname">
                         <h3>Data Structures & Algorithms (DSA in Java)</h3>
                     </a>
                 </div>
@@ -748,7 +972,8 @@
                     <div class="cert-icon">
                         <i class="fab fa-html5"></i>
                     </div>
-                    <a href="https://github.com/shivanshjaiswal07/shivanshjaiswal07/blob/main/protfolio/html.png?raw=true" target="_blank" rel="noopener noreferrer" class="certname">
+                    <a href="https://github.com/shivanshjaiswal07/shivanshjaiswal07/blob/main/protfolio/html.png?raw=true"
+                        target="_blank" rel="noopener noreferrer" class="certname">
                         <h3>HTML</h3>
                     </a>
                 </div>
@@ -756,7 +981,8 @@
                     <div class="cert-icon">
                         <i class="fab fa-css3-alt"></i>
                     </div>
-                    <a href="https://github.com/shivanshjaiswal07/shivanshjaiswal07/blob/main/protfolio/css.png?raw=true" target="_blank" rel="noopener noreferrer" class="certname">
+                    <a href="https://github.com/shivanshjaiswal07/shivanshjaiswal07/blob/main/protfolio/css.png?raw=true"
+                        target="_blank" rel="noopener noreferrer" class="certname">
                         <h3>CSS</h3>
                     </a>
                 </div>
@@ -764,7 +990,8 @@
                     <div class="cert-icon">
                         <i class="fas fa-globe"></i>
                     </div>
-                    <a href="https://raw.githubusercontent.com/shivanshjaiswal07/shivanshjaiswal07/main/protfolio/Web%20Design.jfif" target="_blank" rel="noopener noreferrer" class="certname">
+                    <a href="https://raw.githubusercontent.com/shivanshjaiswal07/shivanshjaiswal07/main/protfolio/Web%20Design.jfif"
+                        target="_blank" rel="noopener noreferrer" class="certname">
                         <h3>Web Design</h3>
                     </a>
                 </div>
@@ -772,7 +999,8 @@
                     <div class="cert-icon">
                         <i class="fas fa-brain"></i>
                     </div>
-                    <a href="https://github.com/shivanshjaiswal07/shivanshjaiswal07/blob/main/protfolio/What%20is%20generative%20ai.jpg?raw=true" target="_blank" rel="noopener noreferrer" class="certname">
+                    <a href="https://github.com/shivanshjaiswal07/shivanshjaiswal07/blob/main/protfolio/What%20is%20generative%20ai.jpg?raw=true"
+                        target="_blank" rel="noopener noreferrer" class="certname">
                         <h3>Generative AI</h3>
                     </a>
                 </div>
@@ -780,58 +1008,81 @@
                     <div class="cert-icon">
                         <i class="fas fa-people-arrows"></i>
                     </div>
-                    <a href="https://raw.githubusercontent.com/shivanshjaiswal07/shivanshjaiswal07/main/protfolio/Ibm.jfif" target="_blank" rel="noopener noreferrer" class="certname">
+                    <a href="https://raw.githubusercontent.com/shivanshjaiswal07/shivanshjaiswal07/main/protfolio/Ibm.jfif"
+                        target="_blank" rel="noopener noreferrer" class="certname">
                         <h3>Effective Communication</h3>
+                    </a>
+                </div>
+                <div class="glass-card cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <a href="https://raw.githubusercontent.com/shivanshjaiswal07/shivanshjaiswal07/refs/heads/main/protfolio/MERN.jfif"
+                        target="_blank" rel="noopener noreferrer" class="certname">
+                        <h3>MERN</h3>
                     </a>
                 </div>
             </div>
         </section>
-        
-        
-           
-            
-            <div class="resume-btn">
+
+        <div class="resume-btn">
+            <a href="https://www.dropbox.com/scl/fi/o2ci17q99bf284sgx0fzj/resume-Shivansh_Jaiswal.pdf?rlkey=i87lm6gfs2wtgahtsocdp1bzp&st=l416bf1g&dl=0"
+                target="_blank">
                 <button class="glass-card">
                     <i class="fas fa-download"></i>
                     Download Resume
                 </button>
-            </div>
+            </a>
+
+        </div>
         </section>
 
         <section id="projects" class="reveal">
             <h2>Featured Projects</h2>
             <div class="projects-grid">
                 <div class="glass-card project-card">
-                    <img src="https://raw.githubusercontent.com/shivanshjaiswal07/shivanshjaiswal07/main/netflix/netflix.png" alt="Netflix Clone" style="width: 280px; height: 300px;">
-
+                    <img src="https://raw.githubusercontent.com/shivanshjaiswal07/shivanshjaiswal07/main/netflix/netflix.png"
+                        alt="Netflix Clone" style="width: 280px; height: 300px;">
                     <h3>Netflix Clone</h3>
-                    <p>Recreated the Netflix UI using HTML & CSS, focusing on responsive design and modern layout techniques.</p>
-                    <a href="https://github.com/shivanshjaiswal07/shivanshjaiswal07/tree/main/netflix" class="project-link">
-                        View Project <i class="fas fa-arrow-right"></i>
-                    </a>
+                    <p>Recreated the Netflix UI using HTML & CSS, focusing on responsive design and modern layout
+                        techniques.</p>
+                    <h3 class="project-link">
+                        View project
+                    </h3>
+                    <br>
+                    <a href="https://shivanshjaiswal07-net.netlify.app/" class="project-link" target="_blank"
+                        rel="noopener noreferrer">Preview</a><i class="fas fa-arrow-right"></i><br>
+                    <a href="https://github.com/shivanshjaiswal07/shivanshjaiswal07/blob/main/netflix/index.html"
+                        class="project-link">Code</a><i class="fas fa-arrow-right"></i><br>
                 </div>
                 <div class="glass-card project-card">
-                    <img src="https://github.com/shivanshjaiswal07/shivanshjaiswal07/blob/main/protfolio/protfolio.png?raw=true" alt="Portfolio Website"style="width:280px; height:300px;">
+                    <img src="https://raw.githubusercontent.com/shivanshjaiswal07/shivanshjaiswal07/refs/heads/main/protfolio/78.jpg"
+                        alt="Portfolio Website" style="width:280px; height:300px;">
                     <h3>Portfolio Website</h3>
                     <p>Designed and developed a personal portfolio showcasing my projects and skills.</p>
-                    <a href="https://github.com/shivanshjaiswal07/shivanshjaiswal07/tree/main/protfolio" class="project-link">
-                        View Project <i class="fas fa-arrow-right"></i>
-                    </a>
+                    <h3 class="project-link">
+                        View Project
+                    </h3>
+                    <br>
+                    <a href="https://github.com/shivanshjaiswal07/shivanshjaiswal07/blob/main/new-protfolio/index.html"
+                        class="project-link">Code</a><i class="fas fa-arrow-right"></i><br>
+                    <a href="https://shivanshjaiswal07.netlify.app/" class="project-link">Preview</a><i
+                        class="fas fa-arrow-right"></i><br>
+                    </h3>
                 </div>
                 <div class="glass-card project-card">
-                   <img src="https://raw.githubusercontent.com/shivanshjaiswal07/shivanshjaiswal07/main/protfolio/photography.png" alt="Instagram Clone" style="width: 280px; height: 300px;">
-                    <h3>Photography Website</h3>
-                    <p>A static and a basic website</p>
-                    <a href="https://github.com/shivanshjaiswal07/shivanshjaiswal07/tree/main/Photography" class="project-link">
-                        View Project <i class="fas fa-arrow-right"></i>
-                    </a> 
-                </div>
-                <div class="glass-card project-card">
-                    <img src="https://github.com/shivanshjaiswal07/shivanshjaiswal07/blob/main/protfolio/amazon.png?raw=true" alt="Amazon Clone" style="width: 280px; height: 300px;">
-                    <h3>Amazon Clone (US Version)</h3>
-                    <p>Developed a static replica of Amazon.com with HTML & CSS, focusing on complex layouts and responsiveness.</p>
-                    <a href="https://github.com/shivanshjaiswal07/shivanshjaiswal07/tree/main/amazon" class="project-link">View Project <i class="fas fa-arrow-right"></i>
-                    </a>
+                    <img src="https://raw.githubusercontent.com/shivanshjaiswal07/shivanshjaiswal07/refs/heads/main/protfolio/Screenshot 2025-11-26 193134.jpg"
+                        style="width:320px; height:320px;" alt="Photography" ;alt="Amazon Clone">
+                    <h3>Swasthya Shayak </h3>
+                    <p>Designed multilingual flows to support villagers with low digital literacy.</p>
+                    <p>AI-driven rural health chatbot using WhatsApp and SMS for 24×7 symptom guidance and awareness.
+                    </p>
+                    <h3 class="project-link">
+                        View Project <br>
+                        <a href="https://github.com/shivanshjaiswal07/health-connect-varta"
+                            class="project-link">Code</a><i class="fas fa-arrow-right"></i><br>
+                        <a href="https://swasthya-seven.vercel.app/" class="project-link">Preview</a><i
+                            class="fas fa-arrow-right"></i><br>
                 </div>
             </div>
         </section>
@@ -844,356 +1095,347 @@
         <section id="contact" class="reveal">
             <h2>Get in Touch</h2>
             <div class="glass-card contact-card">
-                <p>Feel free to reach out for collaborations or just a friendly hello</p>
+                <p>Feel free to reach out for collaborations or just a friendly Hello</p>
                 <div class="social-links">
-                    <a href="https://github.com/shivanshjaiswal07/shivanshjaiswal07" target="_blank" rel="noopener noreferrer">
+                    <a href="https://github.com/shivanshjaiswal07/shivanshjaiswal07" target="_blank"
+                        rel="noopener noreferrer">
                         <i class="fab fa-github"></i>
                     </a>
                     <a href="https://www.linkedin.com/in/shivanshjaiswal07/" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-linkedin"></i>
-                    </a> 
-                    <a href="mailto:shivanshjaiswal1212@gmail.com">
+                    </a>
+                    <a href="https://shivanshjaiswal1212@gmail.com/">
                         <i class="fas fa-envelope"></i>
                     </a>
-                    
                 </div>
-                <p>  All rights belong to their respective owners.</p>
             </div>
         </section>
-    
     </main>
-    
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-        }
-    });
-}, { threshold: 0.1 });
 
-document.querySelectorAll('.reveal').forEach(section => {
-    observer.observe(section);
-});
-
-// Mobile menu toggle
-const menuBtn = document.querySelector('.mobile-menu-btn');
-const navLinks = document.querySelector('.nav-links');
-
-menuBtn.addEventListener('click', () => {
-    menuBtn.classList.toggle('active');
-    navLinks.classList.toggle('active');
-});
-
-// Three.js Shapes with different geometries
-function createShape(containerId, shapeType) {
-    const container = document.getElementById(containerId);
-    if (!container) return;
-
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-    
-    renderer.setSize(300, 300);
-    container.appendChild(renderer.domElement);
-
-    let geometry;
-    switch(shapeType) {
-        case 'icosahedron':
-            geometry = new THREE.IcosahedronGeometry(2);
-            break;
-        case 'dodecahedron':
-            geometry = new THREE.DodecahedronGeometry(2);
-            break;
-        case 'octahedron':
-            geometry = new THREE.OctahedronGeometry(2);
-            break;
-        default:
-            geometry = new THREE.IcosahedronGeometry(2);
-    }
-
-    const edges = new THREE.EdgesGeometry(geometry);
-    const line = new THREE.LineSegments(
-        edges,
-        new THREE.LineBasicMaterial({ 
-            color: 0xFFFFFF,
-            transparent: true,
-            opacity: 0.8
-        })
-    );
-    
-    scene.add(line);
-    camera.position.z = 5;
-
-    let rotationSpeed = 0.02;
-    let mouseX = 0;
-    let mouseY = 0;
-
-    // Add interactive rotation
-    container.addEventListener('mousemove', (event) => {
-        const rect = container.getBoundingClientRect();
-        mouseX = ((event.clientX - rect.left) / container.clientWidth) * 2 - 1;
-        mouseY = -((event.clientY - rect.top) / container.clientHeight) * 2 + 1;
-        rotationSpeed = 0.005;
-    });
-
-    container.addEventListener('mouseleave', () => {
-        rotationSpeed = 0.02;
-        mouseX = 0;
-        mouseY = 0;
-    });
-
-    function animate() {
-        requestAnimationFrame(animate);
-        
-        // Regular rotation
-        line.rotation.x += rotationSpeed;
-        line.rotation.y += rotationSpeed;
-
-        // Interactive rotation
-        line.rotation.x += mouseY * rotationSpeed;
-        line.rotation.y += mouseX * rotationSpeed;
-
-        renderer.render(scene, camera);
-    }
-
-    animate();
-
-    // Handle window resize
-    window.addEventListener('resize', () => {
-        camera.updateProjectionMatrix();
-        renderer.setSize(300, 300);
-    });
-
-    // Clean up function
-    return () => {
-        geometry.dispose();
-        edges.dispose();
-        renderer.dispose();
-    };
-}
-
-// Create different shapes
-createShape('hero-shape', 'icosahedron');
-createShape('shape1', 'dodecahedron');
-createShape('shape2', 'octahedron');
-
-// Circuit animation
-document.addEventListener('DOMContentLoaded', function() {
-    const canvas = document.getElementById('circuitCanvas');
-    const ctx = canvas.getContext('2d');
-
-    // Set canvas to full screen size
-    function resizeCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    }
-    
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-    
-    // Circuit nodes and connections
-    const nodes = [];
-    const nodeCount = Math.floor(window.innerWidth * window.innerHeight / 15000); // Adjust density
-    
-    // Generate random nodes
-    for (let i = 0; i < nodeCount; i++) {
-        nodes.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            connections: []
+</body>
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
         });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(section => {
+        observer.observe(section);
+    });
+
+    // Mobile menu toggle
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuBtn.addEventListener('click', () => {
+        menuBtn.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+
+    // Three.js Shapes with different geometries
+    function createShape(containerId, shapeType) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+
+        renderer.setSize(300, 300);
+        container.appendChild(renderer.domElement);
+
+        let geometry;
+        switch (shapeType) {
+            case 'icosahedron':
+                geometry = new THREE.IcosahedronGeometry(2);
+                break;
+            case 'dodecahedron':
+                geometry = new THREE.DodecahedronGeometry(2);
+                break;
+            case 'octahedron':
+                geometry = new THREE.OctahedronGeometry(2);
+                break;
+            default:
+                geometry = new THREE.IcosahedronGeometry(2);
+        }
+
+        const edges = new THREE.EdgesGeometry(geometry);
+        const line = new THREE.LineSegments(
+            edges,
+            new THREE.LineBasicMaterial({
+                color: 0xFFFFFF,
+                transparent: true,
+                opacity: 0.8
+            })
+        );
+
+        scene.add(line);
+        camera.position.z = 5;
+
+        let rotationSpeed = 0.02;
+        let mouseX = 0;
+        let mouseY = 0;
+
+        // Add interactive rotation
+        container.addEventListener('mousemove', (event) => {
+            const rect = container.getBoundingClientRect();
+            mouseX = ((event.clientX - rect.left) / container.clientWidth) * 2 - 1;
+            mouseY = -((event.clientY - rect.top) / container.clientHeight) * 2 + 1;
+            rotationSpeed = 0.05;
+        });
+
+        container.addEventListener('mouseleave', () => {
+            rotationSpeed = 0.002;
+            mouseX = 0;
+            mouseY = 0;
+        });
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            // Regular rotation
+            line.rotation.x += rotationSpeed;
+            line.rotation.y += rotationSpeed;
+
+            // Interactive rotation
+            line.rotation.x += mouseY * rotationSpeed;
+            line.rotation.y += mouseX * rotationSpeed;
+
+            renderer.render(scene, camera);
+        }
+
+        animate();
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            camera.updateProjectionMatrix();
+            renderer.setSize(300, 300);
+        });
+
+        // Clean up function
+        return () => {
+            geometry.dispose();
+            edges.dispose();
+            renderer.dispose();
+        };
     }
-    
-    // Connect nodes (create circuit paths)
-    for (let i = 0; i < nodes.length; i++) {
-        const node = nodes[i];
-        const connectionsCount = Math.floor(Math.random() * 2) + 1; // 1-2 connections per node
-        
-        // Calculate distances to all other nodes
-        const distances = [];
-        for (let j = 0; j < nodes.length; j++) {
-            if (j === i) continue;
-            const otherNode = nodes[j];
-            const dx = node.x - otherNode.x;
-            const dy = node.y - otherNode.y;
-            distances.push({
-                index: j,
-                distance: Math.sqrt(dx * dx + dy * dy)
+
+    // Create different shapes
+    createShape('hero-shape', 'icosahedron');
+    createShape('shape1', 'dodecahedron');
+    createShape('shape2', 'octahedron');
+
+    // Circuit animation
+    document.addEventListener('DOMContentLoaded', function () {
+        const canvas = document.getElementById('circuitCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Set canvas to full screen size
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        // Circuit nodes and connections
+        const nodes = [];
+        const nodeCount = Math.floor(window.innerWidth * window.innerHeight / 15000); // Adjust density
+
+        // Generate random nodes
+        for (let i = 0; i < nodeCount; i++) {
+            nodes.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                connections: []
             });
         }
-        
-        // Sort by distance and connect to closest nodes
-        distances.sort((a, b) => a.distance - b.distance);
-        
-        for (let j = 0; j < Math.min(connectionsCount, distances.length); j++) {
-            node.connections.push(distances[j].index);
-        }
-    }
-    
-    // Animation variables
-    let lineAnimations = [];
-    
-    // Create initial line animations
-    function createLineAnimations() {
-        lineAnimations = [];
-        const lineCount = Math.floor(nodes.length * 0.3); // 30% of nodes have animated lines
-        
-        for (let i = 0; i < lineCount; i++) {
-            const randomNodeIndex = Math.floor(Math.random() * nodes.length);
-            if (nodes[randomNodeIndex].connections.length > 0) {
-                const targetIndex = nodes[randomNodeIndex].connections[0];
-                lineAnimations.push({
-                    fromNodeIndex: randomNodeIndex,
-                    toNodeIndex: targetIndex,
-                    progress: 0,
-                    speed: 0.005 + Math.random() * 0.01 // Random speed
-                });
-            }
-        }
-    }
-    
-    createLineAnimations();
-    
-    // Function to determine if background is dark blue or black
-    function isBackgroundDarkBlue() {
-        // This is a simple approximation - you may need to adjust based on your specific colors
-        // Check if the gradient is more towards the blue than black
-        return document.body.style.background.indexOf('111827') > -1;
-    }
-    
-    // Animation loop
-    function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        
-        // Determine if background is dark blue
-        const isDarkBlue = isBackgroundDarkBlue();
-        
-        // Set colors based on background with higher opacity values
-        let lineColor;
-        let movingLineColor;
-        
-        if (isDarkBlue) {
-            // On dark blue background, use black lines with higher opacity
-            lineColor = 'rgba(0, 0, 0, 0.15)'; // More visible black for circuit lines
-            movingLineColor = 'rgba(100, 50, 20, 0.3)'; // Higher opacity for moving lines
-        } else {
-            // On black background, use dark blue lines with higher opacity
-            lineColor = 'rgba(0, 30, 60, 0.15)'; // More visible dark blue for circuit lines
-            movingLineColor = 'rgba(0, 40, 80, 0.3)'; // Higher opacity for moving lines
-        }
-        
-        // Draw connections (static circuit lines)
-        ctx.strokeStyle = lineColor;
-        ctx.lineWidth = 1;
-        
+
+        // Connect nodes (create circuit paths)
         for (let i = 0; i < nodes.length; i++) {
             const node = nodes[i];
-            for (const connIndex of node.connections) {
-                const connectedNode = nodes[connIndex];
-                ctx.beginPath();
-                ctx.moveTo(node.x, node.y);
-                ctx.lineTo(connectedNode.x, connectedNode.y);
-                ctx.stroke();
+            const connectionsCount = Math.floor(Math.random() * 2) + 1; // 1-2 connections per node
+
+            // Calculate distances to all other nodes
+            const distances = [];
+            for (let j = 0; j < nodes.length; j++) {
+                if (j === i) continue;
+                const otherNode = nodes[j];
+                const dx = node.x - otherNode.x;
+                const dy = node.y - otherNode.y;
+                distances.push({
+                    index: j,
+                    distance: Math.sqrt(dx * dx + dy * dy)
+                });
+            }
+
+            // Sort by distance and connect to closest nodes
+            distances.sort((a, b) => a.distance - b.distance);
+
+            for (let j = 0; j < Math.min(connectionsCount, distances.length); j++) {
+                node.connections.push(distances[j].index);
             }
         }
-        
-        // Draw animated moving lines
-        ctx.strokeStyle = movingLineColor;
-        ctx.lineWidth = 1.5;
-        
-        for (let i = 0; i < lineAnimations.length; i++) {
-            const anim = lineAnimations[i];
-            const fromNode = nodes[anim.fromNodeIndex];
-            const toNode = nodes[anim.toNodeIndex];
-            
-            // Calculate start and end positions for the animated segment
-            const startX = fromNode.x + (toNode.x - fromNode.x) * Math.max(0, anim.progress - 0.2);
-            const startY = fromNode.y + (toNode.y - fromNode.y) * Math.max(0, anim.progress - 0.2);
-            const endX = fromNode.x + (toNode.x - fromNode.x) * Math.min(1, anim.progress);
-            const endY = fromNode.y + (toNode.y - fromNode.y) * Math.min(1, anim.progress);
-            
-            // Draw the animated line segment
-            ctx.beginPath();
-            ctx.moveTo(startX, startY);
-            ctx.lineTo(endX, endY);
-            ctx.stroke();
-            
-            // Update progress
-            anim.progress += anim.speed;
-            
-            // Reset when it reaches the end
-            if (anim.progress >= 1.2) {
-                anim.progress = 0;
-                
-                // Maybe change to a new connection
-                if (Math.random() < 0.5) {
-                    const newFromNodeIndex = Math.floor(Math.random() * nodes.length);
-                    if (nodes[newFromNodeIndex].connections.length > 0) {
-                        const newToNodeIndex = nodes[newFromNodeIndex].connections[0];
-                        anim.fromNodeIndex = newFromNodeIndex;
-                        anim.toNodeIndex = newToNodeIndex;
-                    }
+
+        // Animation variables
+        let lineAnimations = [];
+
+        // Create initial line animations
+        function createLineAnimations() {
+            lineAnimations = [];
+            const lineCount = Math.floor(nodes.length * 0.3); // 30% of nodes have animated lines
+
+            for (let i = 0; i < lineCount; i++) {
+                const randomNodeIndex = Math.floor(Math.random() * nodes.length);
+                if (nodes[randomNodeIndex].connections.length > 0) {
+                    const targetIndex = nodes[randomNodeIndex].connections[0];
+                    lineAnimations.push({
+                        fromNodeIndex: randomNodeIndex,
+                        toNodeIndex: targetIndex,
+                        progress: 0,
+                        speed: 0.005 + Math.random() * 0.01 // Random speed
+                    });
                 }
             }
         }
-        
-        requestAnimationFrame(animate);
-    }
-    
-    // Start animation
-    animate();
-});
 
-// Smooth scrolling
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        menuBtn.classList.remove('active');
-        navLinks.classList.remove('active');
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
+        createLineAnimations();
+
+        // Function to determine if background is dark blue or black
+        function isBackgroundDarkBlue() {
+            // This is a simple approximation - you may need to adjust based on your specific colors
+            // Check if the gradient is more towards the blue than black
+            return document.body.style.background.indexOf('111827') > -1;
+        }
+
+        // Animation loop
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Determine if background is dark blue
+            const isDarkBlue = isBackgroundDarkBlue();
+
+            // Set colors based on background with higher opacity values
+            let lineColor;
+            let movingLineColor;
+
+            if (isDarkBlue) {
+                // On dark blue background, use black lines with higher opacity
+                lineColor = 'rgba(0, 0, 0, 0.15)'; // More visible black for circuit lines
+                movingLineColor = 'rgba(100, 50, 20, 0.3)'; // Higher opacity for moving lines
+            } else {
+                // On black background, use dark blue lines with higher opacity
+                lineColor = 'rgba(0, 30, 60, 0.15)'; // More visible dark blue for circuit lines
+                movingLineColor = 'rgba(0, 40, 80, 0.3)'; // Higher opacity for moving lines
+            }
+
+            // Draw connections (static circuit lines)
+            ctx.strokeStyle = lineColor;
+            ctx.lineWidth = 1;
+
+            for (let i = 0; i < nodes.length; i++) {
+                const node = nodes[i];
+                for (const connIndex of node.connections) {
+                    const connectedNode = nodes[connIndex];
+                    ctx.beginPath();
+                    ctx.moveTo(node.x, node.y);
+                    ctx.lineTo(connectedNode.x, connectedNode.y);
+                    ctx.stroke();
+                }
+            }
+
+            // Draw animated moving lines
+            ctx.strokeStyle = movingLineColor;
+            ctx.lineWidth = 1.5;
+
+            for (let i = 0; i < lineAnimations.length; i++) {
+                const anim = lineAnimations[i];
+                const fromNode = nodes[anim.fromNodeIndex];
+                const toNode = nodes[anim.toNodeIndex];
+
+                // Calculate start and end positions for the animated segment
+                const startX = fromNode.x + (toNode.x - fromNode.x) * Math.max(0, anim.progress - 0.2);
+                const startY = fromNode.y + (toNode.y - fromNode.y) * Math.max(0, anim.progress - 0.2);
+                const endX = fromNode.x + (toNode.x - fromNode.x) * Math.min(1, anim.progress);
+                const endY = fromNode.y + (toNode.y - fromNode.y) * Math.min(1, anim.progress);
+
+                // Draw the animated line segment
+                ctx.beginPath();
+                ctx.moveTo(startX, startY);
+                ctx.lineTo(endX, endY);
+                ctx.stroke();
+
+                // Update progress
+                anim.progress += anim.speed;
+
+                // Reset when it reaches the end
+                if (anim.progress >= 1.2) {
+                    anim.progress = 0;
+
+                    // Maybe change to a new connection
+                    if (Math.random() < 0.5) {
+                        const newFromNodeIndex = Math.floor(Math.random() * nodes.length);
+                        if (nodes[newFromNodeIndex].connections.length > 0) {
+                            const newToNodeIndex = nodes[newFromNodeIndex].connections[0];
+                            anim.fromNodeIndex = newFromNodeIndex;
+                            anim.toNodeIndex = newToNodeIndex;
+                        }
+                    }
+                }
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        // Start animation
+        animate();
+    });
+
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            menuBtn.classList.remove('active');
+            navLinks.classList.remove('active');
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
         });
     });
-});
 
-// Download resume button animation
-const resumeBtn = document.querySelector('.resume-btn button');
+    const resumeBtn = document.querySelector('.resume-btn button');
+    if (resumeBtn) {
 
-if (resumeBtn) {
-    resumeBtn.addEventListener('mouseover', () => {
-        resumeBtn.style.transform = 'scale(1.05)';
+        resumeBtn.addEventListener('mouseover', () => {
+            resumeBtn.style.transform = 'scale(1.05)';
+        });
+
+        resumeBtn.addEventListener('mouseout', () => {
+            resumeBtn.style.transform = 'scale(1)';
+        });
+
+
+        resumeBtn.addEventListener('click', () => {
+            console.log('Opening resume preview in Dropbox...');
+
+            const resumeLink = "https://www.dropbox.com/scl/fi/ns275omk2rwxto311leia/Shivansh-Jaiswal-Resume.pdf?rlkey=0ravmf4bpkmg1eomm7u05hgr8&st=u45f199i&dl=0";
+
+
+            window.open(resumeLink, "_blank");
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.reveal').forEach(section => {
+            if (section.getBoundingClientRect().top < window.innerHeight) {
+                section.classList.add('active');
+            }
+        });
     });
+</script>
 
-    resumeBtn.addEventListener('mouseout', () => {
-        resumeBtn.style.transform = 'scale(1)';
-    });
-
-    resumeBtn.addEventListener('click', () => {
-
-        window.open('https://raw.githubusercontent.com/shivanshjaiswal07/shivanshjaiswal07/main/protfolio/resume.pdf', '_blank');
-    }); 
-}
-
-
-// Initialize on page load
-document.addEventListener('DOMContentLoaded', () => {
-    // Trigger initial reveal animations
-    document.querySelectorAll('.reveal').forEach(section => {
-        if (section.getBoundingClientRect().top < window.innerHeight) {
-            section.classList.add('active');
-        }
-    });
-});
-document.addEventListener('DOMContentLoaded', () => {
-    // Trigger initial reveal animations
-    document.querySelectorAll('.reveal').forEach(section => {
-        if (section.getBoundingClientRect().top < window.innerHeight) {
-            section.classList.add('active');
-        }
-    });
-});
-    </script>
-    
-</body>
 </html>
